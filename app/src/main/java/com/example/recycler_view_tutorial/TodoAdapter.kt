@@ -10,12 +10,14 @@ import kotlinx.android.synthetic.main.todo_item.view.*
 class TodoAdapter(var todos:List<Todo>,var clickListener: ontodoItemClickListener):RecyclerView.Adapter<TodoAdapter.todoViewHolder>() {
     inner class todoViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
 
-        var title=itemView.tvTitle
-        var cbdone=itemView.cbDone
+        var title1=itemView.tvtitle
+        var link1=itemView.link
+        val imageView1=itemView.imageView
         fun intialiize(item:Todo,action:ontodoItemClickListener){
 
-            title.text=item.title
-            cbdone.isChecked=item.isChecked
+            title1.text=item.title
+            link1.text=item.link
+           imageView1.setImageResource(item.imageView)
             itemView.setOnClickListener {
                 action.onItemClick(item,adapterPosition)
             }
